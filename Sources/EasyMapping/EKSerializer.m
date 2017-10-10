@@ -51,7 +51,7 @@
                 }
             }
             else {
-                [representation setObject:hasOneRepresentation forKey:relationship.keyPath];
+                [self setValue:hasOneRepresentation forKeyPath:relationship.keyPath inRepresentation:representation];
             }
         }
     }
@@ -62,7 +62,7 @@
         if (hasManyObject) {
             NSArray *hasManyRepresentation = [self serializeCollection:hasManyObject
                                                            withMapping:[[relationship objectClass] objectMapping]];
-            [representation setObject:hasManyRepresentation forKey:relationship.keyPath];
+            [self setValue:hasManyRepresentation forKeyPath:relationship.keyPath inRepresentation:representation];
         }
     }
     
